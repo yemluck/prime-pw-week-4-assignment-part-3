@@ -43,6 +43,18 @@ function listItems(){
    return basket;
 }
 
+// function to remove item
+function removeItem(item){
+    let output = '';
+    if (basket.indexOf(item) >= 0){
+        basket.splice(basket.indexOf(item), 1);
+        output = 'item removed';
+    } else {
+        output = 'null';
+    }
+return output;
+}
+
 // Checks
 console.log('Expect to see "true";', addItem('novel'));
 console.log('Expect to see "true";', addItem('textbook'));
@@ -50,10 +62,5 @@ console.log('Expect to see "true";', addItem(4));
 console.log('Expect to see "true";', addItem(true)); // couldn't figure out how to reject non-string parameters
 
 
-/* Create a function called `removeItem`. It should:
-  - Take an input parameter for a string `item`
-  - Use [Array.indexOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf) to find the index of the first matching item in the basket.
-  - Use [Array.splice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) to remove the first matching item from the basket.
-  - Return the item removed or `null` if the item was not found 
-  */
-
+console.log('Expect to see null', removeItem('cuties'))
+console.log('Expect to see item removed', removeItem('novel'))
