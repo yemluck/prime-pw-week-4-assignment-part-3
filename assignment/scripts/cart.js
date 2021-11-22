@@ -20,4 +20,25 @@ addItem(4);
 addItem(false); // every item was added. Couldn't figure out how to reject
                 // non string items
 
+function listItems(){
+     for(x of basket){
+        console.log(x);
+    }
+    return basket;
+ }
 
+ function empty(){
+    basket = [];  // reset the 'basket' to an empty array
+    return basket;
+ }
+console.log(basket)
+
+
+/*
+- Create a function called `listItems`. It should:
+  - loop over the items in the `basket` array
+  - console.log each individual item on a new line
+
+- Create a function called `empty`. It should:
+  - reset the `basket` to an empty array
+*/
