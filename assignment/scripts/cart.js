@@ -3,18 +3,29 @@ console.log('***** Cart Functions *****');
 // We want to see how you are testing your code!!!
 
 let basket = [];
+const maxItems = 5;
 
-function addItem(item){
-    item = String(item); // to enforce item added is a string
-    let newBasket = basket.push(item);
-    console.log(basket);
-    if(newBasket.length > basket.length){
-        newBasket = basket
+function isFull() {
+    let basketSize = true;
+    if ( basket.length < maxItems){ 
+        basketSize = false;
     }
-    return true; // only returns true if item was added to basket
+    return basketSize;
 }
 
-addItem('novel');
+function addItem(item){
+    item = String(item);
+    let output = true;
+    if (isFull() === false ){
+        newBasket = basket.push(item); // add new items to basket
+    } else {
+        output = false;
+        console.log('Basket is full'); // check to make sure else statement runs when basket is filled
+    }
+    return output;
+}
+
+console.log('Expect to see "true";', addItem('novel'));
 addItem('textbook');
 addItem(4);
 addItem(false); // every item was added. Couldn't figure out how to reject
@@ -31,14 +42,4 @@ function listItems(){
     basket = [];  // reset the 'basket' to an empty array
     return basket;
  }
-console.log(basket)
-
-
-/*
-- Create a function called `listItems`. It should:
-  - loop over the items in the `basket` array
-  - console.log each individual item on a new line
-
-- Create a function called `empty`. It should:
-  - reset the `basket` to an empty array
-*/
+console.log(basket);
