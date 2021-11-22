@@ -4,26 +4,20 @@ console.log('***** Cart Functions *****');
 
 let basket = [];
 
-a = 3;
-
-
-
-
 function addItem(item){
-    basket = basket.push(item)
-return true;
+    item = String(item); // to enforce item added is a string
+    let newBasket = basket.push(item);
+    console.log(basket);
+    if(newBasket.length > basket.length){
+        newBasket = basket
+    }
+    return true; // only returns true if item was added to basket
 }
 
 addItem('novel');
 addItem('textbook');
+addItem(4);
+addItem(false); // every item was added. Couldn't figure out how to reject
+                // non string items
 
 
-
-
-
-/*
-- Create a function called `addItem`. It should:
-  - take an input parameter for a string `item`
-  - add the new item to the global array `basket`. 
-  - return `true` indicating the item was added
-  */
